@@ -1,11 +1,13 @@
 <!-- Preloader-->
-<!-- <div class="preloader" id="preloader">
+<!-- <div class="preloader" id="preloader" *ngIf="spinner">
     <div class="spinner-grow text-secondary" role="status">
         <div class="sr-only"></div>
     </div>
 </div> -->
 <!-- Login Wrapper Area-->
+
 <div class="login-wrapper d-flex align-items-center justify-content-center text-center">
+
     <!-- Background Shape-->
     <div class="background-shape"></div>
     <div class="container">
@@ -13,16 +15,16 @@
             <div class="col-10 col-lg-8"><img class="big-logo" src="../../../../assets/images/icons/icon-144x144.png" alt="">
                 <!-- Register Form-->
                 <div class="register-form mt-5">
-                    <form action="home.html" method="">
+                    <form [formGroup]="loginForm">
                         <div class="form-group text-start mb-4"><span>Username</span>
                             <label for="username"><i class="fa-solid fa-user"></i></label>
-                            <input class="form-control" id="username" type="text" placeholder="info@example.com">
+                            <input class="form-control" formControlName="username" id="username" type="text" placeholder="info@example.com">
                         </div>
                         <div class="form-group text-start mb-4"><span>Password</span>
                             <label for="password"><i class="fa-solid fa-key"></i></label>
-                            <input class="form-control" id="password" type="password" placeholder="Password">
+                            <input class="form-control" formControlName="password" id="password" type="password" placeholder="Password">
                         </div>
-                        <button class="btn btn-warning btn-lg w-100" type="button" routerLink="/home">Log In</button>
+                        <button class="btn btn-warning btn-lg w-100" type="submit" (click)="submit(loginForm)">Log In</button>
                     </form>
                 </div>
                 <!-- Login Meta-->
@@ -30,8 +32,9 @@
                     <p class="mb-0">Didn't have an account?<a class="mx-1" routerLink="/register">Register Now</a></p>
                 </div>
                 <!-- View As Guest-->
-                <div class="view-as-guest mt-3"><a class="btn" href="home.html">View as Guest</a></div>
+                <div class="view-as-guest mt-3"><a class="btn">View as Guest</a></div>
             </div>
         </div>
     </div>
+
 </div>
